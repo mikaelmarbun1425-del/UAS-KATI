@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulir Transaksi - Kingabit Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header style="
+            background-color: #800000; 
+            padding: 20px; 
+            text-align: center;">
+        <h1 style="
+            color: #ffffff; 
+            font-family: 'Rockwell', 'Georgia', 'Courier New', serif; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 8px;
+            letter-spacing: 2px;">
+        Kingabit Kitchen Bento & Ramen
+        </h1>
+    
+        <p style="
+            color: #ffcc00; 
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            font-style: italic; 
+            font-size: 11pt; 
+            margin: 0;">
+        🛵 <span style="font-weight: bold;">Pemesanan & Reservasi Online</span> 🛒
+        </p>
+        </header>
+
+        <nav class="menu-bar">
+            <a href="katalog.html">Katalog Menu</a>
+            <a href="detail.html">Detail Rekomendasi</a>
+            <a href="transaksi.html" class="active">Pesan Sekarang</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Hubungi Kami</a>
+        </nav>
+
+        <aside class="sidebar-left">
+            <h3 class="sidebar-title">Ketentuan</h3>
+            <p style="font-size: 12pt; font-family: 'Times New Roman', Times, serif; text-align: left;">Harap isi formulir pesanan secara lengkap untuk memproses kiriman delivery atau reservasi tempat.</p>
+        </aside>
+
+        <main class="content">
+            <h2 class="page-title">FORMULIR TRANSAKSI</h2>
+            <hr class="title-hr">
+
+            <form id="orderForm" style="background: var(--accent); padding: 20px; border-radius: 8px;">
+                <div class="form-group">
+                    <label>Nama Pemesan:</label>
+                    <input type="text" id="nama" class="form-control" required placeholder="Masukkan Nama Lengkap">
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor HP / WhatsApp:</label>
+                    <input type="tel" id="telepon" class="form-control" required placeholder="08xxxxxxxxxx">
+                </div>
+
+                <div class="form-group">
+                    <label>Layanan:</label>
+                    <input type="radio" name="layanan" value="Delivery" checked> Delivery Order 
+                    <input type="radio" name="layanan" value="Dine-In"> Reservasi Dine-In
+                </div>
+
+                <div class="form-group">
+                    <label>Pilih Menu Utama:</label>
+                    <select id="menuUtama" class="form-control" onchange="updateOpsiMenu(); hitungTotal();">
+                        <!-- Format Value: harga|nama_menu|kategori -->
+                        <option value="45000|Shoyu Ramen Pro|ramen">Shoyu Ramen Pro - Rp 45.000</option>
+                        <option value="48000|Miso Ramen Authentic|ramen">Miso Ramen Authentic - Rp 48.000</option>
+                        <option value="50000|Spicy Tori Ramen|ramen">Spicy Tori Ramen - Rp 50.000</option>
+                        <option value="65000|Salmon Sushi Premium|makanan">Salmon Sushi Premium - Rp 65.000</option>
+                        <option value="38000|Chicken Katsu Bento|makanan">Chicken Katsu Bento - Rp 38.000</option>
+                        <option value="42000|Beef Yakiniku Bento|makanan">Beef Yakiniku Bento - Rp 42.000</option>
+                        <!-- Penambahan Menu Minuman -->
+                        <option value="15000|Ocha Tea|minuman">Ocha Tea - Rp 15.000</option>
+                        <option value="18000|Matcha Latte|minuman">Matcha Latte - Rp 18.000</option>
+                    </select>
+                </div>
+
+                <!-- Opsi Dinamis: Level Pedas (Hanya Muncul Jika Ramen Dilih) -->
+                <div class="form-group" id="groupLevelPedas">
+                    <label>Level Pedas:</label>
+                    <select id="levelPedas" class="form-control">
+                        <option value="Level 0 (Tidak Pedas)">Level 0 (Tidak Pedas)</option>
+                        <option value="Level 1 (Sedang)">Level 1 (Sedang)</option>
+                        <option value="Level 2 (Pedas)">Level 2 (Pedas)</option>
+                        <option value="Level 3 (Extra Pedas)">Level 3 (Extra Pedas)</option>
+                    </select>
+                </div>
+
+                <!-- Opsi Dinamis: Ice/Hot (Hanya Muncul Jika Minuman Dipilih) -->
+                <div class="form-group" id="groupOpsiEs" style="display: none;">
+                    <label>Pilihan Penyajian Minuman:</label>
+                    <input type="radio" name="opsiEs" value="Dingin (Pake Es)" checked> Dingin (Pake Es) &nbsp;
+                    <input type="radio" name="opsiEs" value="Hangat / Tanpa Es"> Hangat / Tanpa Es
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Porsi:</label>
+                    <input type="number" id="jumlah" class="form-control" value="1" min="1" onchange="hitungTotal()">
+                </div>
+
+                <div class="form-group">
+                    <label>Extra Topping (+ Rp 5.000):</label>
+                    <input type="checkbox" class="topping" value="5000|Telur Omega" onchange="hitungTotal()"> Telur Omega &nbsp;
+                    <input type="checkbox" class="topping" value="5000|Katsu Extra" onchange="hitungTotal()"> Extra Katsu
+                </div>
+
+                <div class="form-group">
+                    <label>Estimasi Total Bayar:</label>
+                    <input type="text" id="totalBayar" class="form-control" readonly style="font-weight: bold; color: var(--primary);">
+                </div>
+
+                <div class="form-group">
+                    <label>Metode Pembayaran:</label>
+                    <select id="pembayaran" class="form-control">
+                        <option value="Cash / COD">Cash / COD</option>
+                        <option value="Transfer BNI">Transfer Bank BNI (0091856209386)</option>
+                    </select>
+                </div>
+
+                <button type="button" onclick="prosesTransaksi()" class="btn-buy" style="width: 100%; padding: 10px; font-size: 11pt;">Proses Pesanan (Cetak Invoice)</button>
+            </form>
+        </main>
+
+        <aside class="sidebar-right">
+            <h3 class="sidebar-title">Bantuan</h3>
+            <p style="font-size: 12pt; font-family: 'Times New Roman', Times, serif;">Butuh bantuan cepat? Hubungi WA Admin: 0812-3456-7890</p>
+        </aside>
+
+        <footer>
+            <center>
+            <font face="Arial" size="2">
+                <i><b>Copyright &copy; 2026 - Kingabit Kitchen Bento & Ramen. All Rights Reserved. </b></i><br>
+                &#128150 Melayani Sepenuh Hati Untuk Kepuasan Pelanggan &#128150
+            </font>
+            </center>
+        </footer>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT TRANSAKSI -->
+    <script>
+        // Fungsi untuk menampilkan/menyembunyikan form sesuai kategori menu
+        function updateOpsiMenu() {
+            let selectedOption = document.getElementById('menuUtama').value.split('|');
+            let kategori = selectedOption[2];
+
+            let groupPedas = document.getElementById('groupLevelPedas');
+            let groupEs = document.getElementById('groupOpsiEs');
+
+            // Reset tampilan
+            groupPedas.style.display = 'none';
+            groupEs.style.display = 'none';
+
+            if (kategori === 'ramen') {
+                groupPedas.style.display = 'block';
+            } else if (kategori === 'minuman') {
+                groupEs.style.display = 'block';
+            }
+        }
+
+        function hitungTotal() {
+            let menuVal = document.getElementById('menuUtama').value.split('|')[0];
+            let qty = parseInt(document.getElementById('jumlah').value) || 1;
+            let subtotal = parseInt(menuVal) * qty;
+
+            let checkboxes = document.querySelectorAll('.topping:checked');
+            checkboxes.forEach(cb => {
+                subtotal += parseInt(cb.value.split('|')[0]);
+            });
+
+            document.getElementById('totalBayar').value = "Rp " + subtotal.toLocaleString('id-ID');
+            return subtotal;
+        }
+
+        function prosesTransaksi() {
+            let nama = document.getElementById('nama').value;
+            let hp = document.getElementById('telepon').value;
+
+            if(!nama || !hp) {
+                alert("Silahkan lengkapi nama dan nomor HP Anda!");
+                return;
+            }
+
+            let splitMenu = document.getElementById('menuUtama').value.split('|');
+            let menuData = splitMenu[1];
+            let kategori = splitMenu[2];
+            let total = hitungTotal();
+            let metode = document.getElementById('pembayaran').value;
+
+            // Membaca Pilihan Spesifik
+            let catatanOpsi = "";
+            if (kategori === 'ramen') {
+                catatanOpsi = document.getElementById('levelPedas').value;
+            } else if (kategori === 'minuman') {
+                catatanOpsi = document.querySelector('input[name="opsiEs"]:checked').value;
+            }
+
+            // Simpan ke LocalStorage untuk ditampilkan di Invoice.html
+            localStorage.setItem('inv_nama', nama);
+            localStorage.setItem('inv_hp', hp);
+            localStorage.setItem('inv_menu', menuData);
+            localStorage.setItem('inv_opsi', catatanOpsi); // Menyimpan Level Pedas / Pilihan Es
+            localStorage.setItem('inv_qty', document.getElementById('jumlah').value);
+            localStorage.setItem('inv_total', total);
+            localStorage.setItem('inv_metode', metode);
+
+            // Pindah Halaman ke Invoice
+            window.location.href = "invoice.html";
+        }
+
+        // Jalankan fungsi saat halaman selesai dimuat
+        window.onload = function() {
+            updateOpsiMenu();
+            hitungTotal();
+        };
+    </script>
+</body>
+</html>

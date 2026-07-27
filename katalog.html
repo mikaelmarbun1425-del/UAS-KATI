@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Katalog Menu - Kingabit Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- MARQUEE DI POSISI PALING ATAS -->
+        <div class="marquee-container">
+            <marquee behavior="scroll" direction="left">
+                🔥 PROMO SPECIAL: Diskon Paket Combo Ramen + Ocha Refill Cuma Rp 45.000! Gratis Ongkir Wilayah Bandung Kota 🔥
+            </marquee>
+        </div>
+
+        <!-- HEADER -->
+        <header style="
+            background-color: #800000; 
+            padding: 20px; 
+            text-align: center;">
+        <h1 style="
+            color: #ffffff; 
+            font-family: 'Rockwell', 'Georgia', 'Courier New', serif; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            margin-bottom: 8px;
+            letter-spacing: 2px;">
+        Kingabit Kitchen Bento & Ramen
+        </h1>
+    
+        <p style="
+            color: #ffcc00; 
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            font-style: italic; 
+            font-size: 11pt; 
+            margin: 0;">
+        🔥 <span style="font-weight: bold;">Autentik Kuliner Jepang di Lidah Anda</span> 🔥
+        </p>
+        </header>
+
+        <!-- MENU NAVIGASI -->
+        <nav class="menu-bar">
+            <a href="index.html">Beranda</a>
+            <a href="katalog.html" class="active">Katalog Menu</a>
+            <a href="detail.html">Detail Rekomendasi</a>
+            <a href="transaksi.html">Pesan Sekarang</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Hubungi Kami</a>
+        </nav>
+
+        <!-- SIDEBAR LEFT -->
+        <aside class="sidebar-left">
+            <h3 class="sidebar-title">Kategori Menu</h3>
+            <ul class="category-list">
+                <li><a href="#ramen">🍜 Ramen Series</a></li>
+                <li><a href="#bento">🍱 Bento & Sushi</a></li>
+                <li><a href="#minuman">🍹 Minuman & Mochi</a></li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+            <h2 class="page-title">KATALOG MENU UTAMA</h2>
+            <hr class="title-hr">
+
+            <div style="text-align: center; margin-bottom: 25px;">
+                <a href="transaksi.html">
+                    <img src="c:\Users\Pongo\Downloads\kengbit.jpg" alt="Banner Promo" style="width: 100%; border-radius: 8px;">
+                </a>
+            </div>
+
+            <!-- GRID 9 PRODUK -->
+            <div class="catalog-grid">
+                <!-- 1 -->
+                <div class="product-card" id="ramen">
+                    <img src="c:\Users\Pongo\Downloads\r.jpg" alt="Shoyu Ramen Pro">
+                    <div class="product-title">Shoyu Ramen Pro</div>
+                    <div class="product-price">Rp 45.000</div>
+                    <a href="detail.html#shoyu" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 2 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k1.jpg" alt="Miso Ramen Authentic">
+                    <div class="product-title">Miso Ramen Authentic</div>
+                    <div class="product-price">Rp 48.000</div>
+                    <a href="detail.html#miso" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 3 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k2.jpg" alt="Spicy Tori Ramen">
+                    <div class="product-title">Spicy Tori Ramen</div>
+                    <div class="product-price">Rp 50.000</div>
+                    <a href="detail.html#spicy" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 4 -->
+                <div class="product-card" id="bento">
+                    <img src="c:\Users\Pongo\Downloads\k3.jpg" alt="Salmon Sushi Premium">
+                    <div class="product-title">Salmon Sushi Premium</div>
+                    <div class="product-price">Rp 65.000</div>
+                    <a href="detail.html#sushi" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 5 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k4.jpg" alt="Chicken Katsu Bento">
+                    <div class="product-title">Chicken Katsu Bento</div>
+                    <div class="product-price">Rp 38.000</div>
+                    <a href="detail.html#katsu" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 6 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k5.jpg" alt="Beef Yakiniku Bento">
+                    <div class="product-title">Beef Yakiniku Bento</div>
+                    <div class="product-price">Rp 42.000</div>
+                    <a href="detail.html#yakiniku" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 7 -->
+                <div class="product-card" id="minuman">
+                    <img src="c:\Users\Pongo\Downloads\k6.jpg" alt="Cold Ocha Refill">
+                    <div class="product-title">Cold Ocha (Refill)</div>
+                    <div class="product-price">Rp 10.000</div>
+                    <a href="detail.html#ocha" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 8 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k7.jpg" alt="Iced Matcha Latte">
+                    <div class="product-title">Matcha Latte</div>
+                    <div class="product-price">Rp 22.000</div>
+                    <a href="detail.html#matcha" class="btn-buy">Beli Sekarang</a>
+                </div>
+                <!-- 9 -->
+                <div class="product-card">
+                    <img src="c:\Users\Pongo\Downloads\k8.jpg" alt="Mochi Ice Cream">
+                    <div class="product-title">Mochi Ice Cream</div>
+                    <div class="product-price">Rp 15.000</div>
+                    <a href="detail.html#mochi" class="btn-buy">Beli Sekarang</a>
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR RIGHT -->
+        <aside class="sidebar-right">
+            <h3 class="sidebar-title">Jam Buka</h3>
+            <p style="font-size: 12pt; font-family: 'Times New Roman', Times, serif; text-align: center; margin-bottom: 15px;">
+                <b>Senin - Minggu:</b><br>09.00 - 21.00 WIB
+            </p>
+            <h3 class="sidebar-title">Lokasi</h3>
+            <p style="font-size: 12pt; font-family: 'Times New Roman', Times, serif;">📍 Gg. Babakan Tarogong IV, Suka Asih, Kec. Bojongloa Kaler, Kota Bandung, Jawa Barat, Kode Pos 40231</p>
+        </aside>
+
+        <!-- FOOTER -->
+        <footer>
+            <center>
+            <font face="Arial" size="2">
+                <i><b>Copyright &copy; 2026 - Kingabit Kitchen Bento & Ramen. All Rights Reserved. </b></i><br>
+                &#128150 Melayani Sepenuh Hati Untuk Kepuasan Pelanggan &#128150
+            </font>
+            </center>
+        </footer>
+    </div>
+</body>
+</html>

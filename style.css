@@ -1,0 +1,364 @@
+/* ==========================================
+   RESET & VARIABLE
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #8B0000;      /* Crimson / Merah Marun */
+    --secondary: #FFD700;    /* Emas */
+    --accent: #FFF5EE;       /* Warm Cream */
+    --dark: #333333;
+    --light: #FFFFFF;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f4f4f9;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   LAYOUT CONTAINER (GRID SYSTEM)
+   ========================================== */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'marquee marquee marquee'
+        'header header header'
+        'menu menu menu'
+        'left content right'
+        'footer footer footer';
+    grid-template-columns: 220px 1fr 240px;
+    grid-template-rows: auto auto auto 1fr auto;
+    min-height: 100vh;
+    max-width: 1300px;
+    margin: 0 auto;
+    background: var(--light);
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* ==========================================
+   1. MARQUEE PROMO (DI POSISI PALING ATAS)
+   ========================================== */
+.marquee-container {
+    grid-area: marquee;
+    background: var(--secondary);
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 10pt;
+    padding: 8px 0;
+    border-bottom: 1px solid #e6c200;
+}
+
+/* ==========================================
+   2. HEADER DENGAN JARAK & PADDING RAPI
+   ========================================== */
+header {
+    grid-area: header;
+    background: linear-gradient(135deg, var(--primary), #5a0000);
+    color: var(--light);
+    padding: 25px 30px; /* Padding ditambah agar lebih lapang */
+    text-align: center;
+}
+header h1 { 
+    font-size: 26pt; 
+    color: var(--secondary); 
+    margin-bottom: 8px; 
+    letter-spacing: 1px;
+}
+header p {
+    font-size: 11pt;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   3. MENU NAVIGASI DENGAN JARAK RENGGANG (GAP)
+   ========================================== */
+nav.menu-bar {
+    grid-area: menu;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Memberi jarak antar tombol menu */
+    padding: 8px 20px; /* Jarak atas-bawah menu */
+    border-top: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+}
+nav.menu-bar a {
+    color: var(--light);
+    text-decoration: none;
+    padding: 10px 22px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+nav.menu-bar a:hover, nav.menu-bar a.active {
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+
+/* ==========================================
+   SIDEBAR LEFT & RIGHT
+   ========================================== */
+aside.sidebar-left {
+    grid-area: left;
+    background-color: var(--accent);
+    padding: 20px;
+    border-right: 1px solid #eee;
+}
+aside.sidebar-right {
+    grid-area: right;
+    background-color: var(--accent);
+    padding: 20px;
+    border-left: 1px solid #eee;
+}
+.sidebar-title {
+    font-size: 13pt;
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.category-list { list-style: none; }
+.category-list li { margin-bottom: 10px; }
+.category-list a {
+    color: var(--dark);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    background: var(--light);
+    border-radius: 6px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: 0.2s;
+}
+.category-list a:hover { 
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+/* ==========================================
+   MAIN CONTENT AREA
+   ========================================== */
+main.content {
+    grid-area: content;
+    padding: 25px;
+    background-color: var(--light);
+}
+
+.page-title {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+.title-hr {
+    border: 0;
+    height: 3px;
+    background: var(--secondary);
+    width: 180px;
+    margin: 0 auto 25px auto;
+}
+
+/* ==========================================
+   HERO BANNER STYLE (Garis Tepi Oranye)
+   ========================================== */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url('c:/Users/Pongo/Downloads/k9_4_optimized_80.jpg') no-repeat center center / cover;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Judul Banner dengan Teks Putih + Garis Tepi (Outline) Oranye */
+.hero-title {
+    color: #ffffff;
+    font-family: 'Verdana', sans-serif;
+    font-size: 26pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    -webkit-text-stroke: 1.5px #FF9900; /* Garis tepi oranye 1.5px */
+    text-shadow: 
+        2px 2px 0 #FF9900,
+       -2px -2px 0 #FF9900,
+        2px -2px 0 #FF9900,
+       -2px 2px 0 #FF9900,
+        0px 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Subtitle/Slogan Banner dengan Garis Tepi Oranye */
+.hero-subtitle {
+    color: #ffffff;
+    font-family: 'Verdana', sans-serif;
+    font-size: 13pt;
+    margin-bottom: 25px;
+    -webkit-text-stroke: 0.8px #FF9900; /* Garis tepi oranye 0.8px */
+    text-shadow: 
+        1px 1px 0 #FF9900,
+       -1px -1px 0 #FF9900,
+        1px -1px 0 #FF9900,
+       -1px 1px 0 #FF9900;
+}
+
+/* Tombol Pesan Sekaran Warna Oranye */
+.btn-hero {
+    background-color: #ff9900;
+    color: #ffffff !important;
+    font-family: 'Verdana', sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: #e68a00;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   KATALOG GRID 3x3
+   ========================================== */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.product-title { font-weight: bold; margin: 12px 0 5px 0; font-size: 11pt; }
+.product-price { color: var(--primary); font-weight: bold; margin-bottom: 12px; }
+.btn-buy {
+    background: var(--primary);
+    color: var(--light);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 9.5pt;
+    font-weight: bold;
+}
+.btn-buy:hover { background: #600000; }
+
+/* ==========================================
+   DETAIL PRODUK LAYOUT
+   ========================================== */
+.detail-container {
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+.detail-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.detail-info { flex: 1; }
+.detail-info h3 { color: var(--primary); margin-bottom: 10px; }
+.detail-info h4 { margin-top: 10px; color: #444; }
+
+/* ==========================================
+   FORM & TRANSACTION
+   ========================================== */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 6px; font-size: 9.5pt; }
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ==========================================
+   INVOICE BOX
+   ========================================== */
+.invoice-card {
+    border: 2px dashed var(--primary);
+    background: var(--accent);
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+.invoice-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.invoice-table td { padding: 8px 0; border-bottom: 1px solid #ddd; }
+
+/* ==========================================
+   FOOTER & RESPONSIVE
+   ========================================== */
+footer {
+    grid-area: footer;
+    background: var(--primary);
+    color: var(--light);
+    text-align: center;
+    padding: 15px;
+    font-size: 9.5pt;
+}
+
+@media (max-width: 850px) {
+    .grid-container {
+        grid-template-areas:
+            'marquee' 'header' 'menu' 'content' 'left' 'right' 'footer';
+        grid-template-columns: 1fr;
+    }
+    nav.menu-bar { flex-wrap: wrap; gap: 5px; }
+    .catalog-grid { grid-template-columns: 1fr; }
+    .detail-container { flex-direction: column; align-items: center; text-align: center; }
+    .hero-title { font-size: 18pt; }
+}

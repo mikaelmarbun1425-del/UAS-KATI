@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Struk Invoice - Kingabit Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid-container">
+        <header>
+            <h1>Kingabit Kitchen Bento & Ramen</h1>
+            <p>Nota Pembayaran Resmi</p>
+        </header>
+
+        <nav class="menu-bar">
+            <a href="katalog.html">Katalog Menu</a>
+            <a href="detail.html">Detail Rekomendasi</a>
+            <a href="transaksi.html">Pesan Sekarang</a>
+            <a href="tentang.html">Tentang Kami</a>
+            <a href="kontak.html">Hubungi Kami</a>
+        </nav>
+
+        <aside class="sidebar-left"></aside>
+
+        <main class="content">
+            <h2 class="page-title">INVOICE PEMESANAN</h2>
+            <hr class="title-hr">
+
+            <div class="invoice-card">
+                <h3 style="text-align: center; color: var(--primary);">KINGABIT KITCHEN</h3>
+                <p style="text-align: center; font-size: 8pt;">Gg. Babakan Tarogong IV, Bandung</p>
+                <hr style="margin: 10px 0;">
+
+                <table class="invoice-table">
+                    <tr><td><b>Nama Pemesan:</b></td><td id="outNama">-</td></tr>
+                    <tr><td><b>No HP/WA:</b></td><td id="outHp">-</td></tr>
+                    <tr><td><b>Menu Dipesan:</b></td><td id="outMenu">-</td></tr>
+                    <tr><td><b>Jumlah Porsi:</b></td><td id="outQty">-</td></tr>
+                    <tr><td><b>Metode Pembayaran:</b></td><td id="outMetode">-</td></tr>
+                    <tr style="font-weight: bold; font-size: 12pt; color: var(--primary);">
+                        <td>TOTAL BAYAR:</td>
+                        <td id="outTotal">-</td>
+                    </tr>
+                </table>
+                <br>
+                <p style="text-align: center; font-size: 8pt; color: green;"><b>Status: Pesanan Berhasil Diterima!</b></p>
+                <br>
+                <button onclick="window.print()" class="btn-buy" style="width:100%;">Cetak Struk Ini</button>
+            </div>
+        </main>
+
+        <aside class="sidebar-right"></aside>
+
+        <footer>
+            <center>
+            <font face="Arial" size="2">
+                <i><b>Copyright &copy; 2026 - Kingabit Kitchen Bento & Ramen. All Rights Reserved. </b></i><br>
+                &#128150 Melayani Sepenuh Hati Untuk Kepuasan Pelanggan &#128150
+            </font>
+            </center>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('outNama').innerText = localStorage.getItem('inv_nama') || "-";
+            document.getElementById('outHp').innerText = localStorage.getItem('inv_hp') || "-";
+            document.getElementById('outMenu').innerText = localStorage.getItem('inv_menu') || "-";
+            document.getElementById('outQty').innerText = localStorage.getItem('inv_qty') + " Porsi";
+            document.getElementById('outMetode').innerText = localStorage.getItem('inv_metode') || "-";
+            
+            let total = parseInt(localStorage.getItem('inv_total')) || 0;
+            document.getElementById('outTotal').innerText = "Rp " + total.toLocaleString('id-ID');
+        }
+    </script>
+</body>
+</html>
