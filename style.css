@@ -174,7 +174,7 @@ main.content {
     position: relative;
     width: 100%;
     height: 400px;
-    background: url('c:/Users/Pongo/Downloads/k9_4_optimized_80.jpg') no-repeat center center / cover;
+    background: url('k9_4_optimized_80.jpg') no-repeat center center / cover;
     border-radius: 8px;
     margin-bottom: 25px;
     overflow: hidden;
